@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+        .link{
+            font-size: 10pt;
+            text-align: center;
+            width: 76%;
+            margin-top: -0.4cm;
+            
+        }
+        .h1{
+            font-family: 'Times New Roman', Times, serif;
+            color: #05539B;
+            margin-top: 0.9cap;
+            width: 30%;
+            margin-left: 100px;
+           
+        }
+        .form-group label{
+            text-align: left; /*os labels ficarem alinhados à esquerda*/
+        }
+        .form-group{
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 0.55cm;
+            text-align: center;
+            padding: 5px;
+            width: 600px; /* Ajuste a largura total do grupo para centralizar o conteúdo */
+            margin: auto; /* Centralizar horizontalmente */
+            
+        }
+        .form-group:first-child {
+            margin-bottom: -0.2cm; /* Ajuste a margem inferior do primeiro .form-group */
+        }
+        .input{
+            width: 240px;   /*Largura da caixa de texto*/
+            display: block; /*colocar a caixa de input embaixo dos campos Usuário*/
+            border: 1.4px solid #3b3dd6;   
+        }
+        .container {
+            /* Adicionando margem superior para centralizar a parte do conteúdo mais para baixo */
+            margin-top: 200px;}
+
+        .button{
+            margin-top: 15px;
+            font-size: 80%;
+            margin-top: 100px;
+            height: 34px;
+            background-color: #92BDEF;
+            width: 80px;    /* Largura do botão */
+            margin: 0 auto; /* Centralizar horizontalmente */
+            position: absolute;
+            top: 67.5%;
+            left: 54.5%; /* Posiciona o botão no meio horizontal da página */
+        }
+        
+        body {
+            display: flex;
+            align-items: center;
+            height: 84vh;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 16px;
+            color: #000;
+            justify-content: center; 
+            
+        }
+        .login-text{
+            text-align: center;
+            font-size: 16px;
+            color: #030303;
+            padding: 10px;
+            margin-top: 70px; /* Ajuste a margem superior para mover o texto para baixo */
+            margin-left: -410px;
+        }
+        .divider-left {
+            left: 300px;
+        }
+        .divider {
+            margin: 0 10px; /* Espaçamento entre o texto e os traços */
+            position: absolute;
+            top: 80%;
+            width: 300px;   /*Largura da linha*/
+            height: 1.4px;  /*grossura da linha*/
+            background-color: #050e91;
+            transform: translateY(50%);
+        }
+        .divider-right {
+            right: 323px;
+        }
+        .balloon {
+            position: absolute;
+            margin-right: 10px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 140px; /* Altura do balão */
+            background-color: #A6A9FF; /* Cor de fundo do balão */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0 0 50% 50%;  /*com esta linha, o bolão ficará uma meia lua de cabeça para baixo*/
+            z-index: 999; /* Coloque um valor alto para garantir que o balão esteja acima de outros elementos */
+        }
+        .balloon img {
+            width: 83px;
+            display: block;
+            margin: 0 auto; /* Centraliza a imagem horizontalmente */
+            position: absolute;
+            top: 0; /* Posiciona a imagem no topo do balão */
+            left: 50%; /* Posiciona a imagem no centro horizontal do balão */
+            transform: translateX(-50%); /* Centraliza a imagem horizontalmente no balão */
+            z-index: 2;
+        }
+        .balloon-text {
+            font-family: 'Londrina Shadow';
+            font-size: 40px;
+            color: #14168f; /* Cor do texto dentro do balão */
+            padding-top: 68px; /* Ajuste o valor para posicionar o texto para baixo */
+            width: -1%;
+            position: absolute;
+            top: 50%; /* Posiciona o texto no centro vertical da imagem */
+            left: 50%; /* Posiciona o texto no centro horizontal da imagem */
+            transform: translate(-50%, -50%); /* Centraliza o texto dentro da imagem */
+            z-index: 1; 
+        }
+    </style>
+    <link rel="shortcut icon" href="Picol-Picol-Login.512.png" type="image/x-icon">
+    <title>Página de Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="balloon">
+        <span class="balloon-text"><strong>EducaAtivo</strong></span>
+        <img src="Desenho-Academia-PNG.png" alt="">
+    </div>
+
+    <div class="h1">
+        <h1>Olá, bem-vindo!</h1></div>
+    <div class="container">
+
+        <form action="#" th:action="@{/merendeira}" th:object="${merendeira}" method="post">
+        
+        <div class="form-group">
+            <label class="form-group label" for="nome">Usuário</label>
+            <input class="input" type="text" th:field="*{nome}" class="form-control" id="nome">
+        </div>
+        <div class="form-group">
+            <label class="form-group label" for="password">Senha</label>
+            <input class="input" type="password" th:field="*{password}" class="form-control" id="password" >
+        </div>
+
+        <div class="link"><a href="#">Esqueceu a senha?</a></div>
+        <button type="submit" class="button"><strong>ENTRAR</strong></button>
+
+    </form>
+        <div class="login-text">
+            <span class="divider divider-left"></span>
+            <p>Faça login com</p>
+            <span class="divider divider-right"></span>
+        </div>
+    </div>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+
